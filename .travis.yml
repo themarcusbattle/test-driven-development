@@ -1,0 +1,14 @@
+language: php
+
+php:
+ - 7.1.3
+
+services:
+ - postgresql
+
+before_script:
+ - psql -c 'create database test_db;' -U postgres
+ - curl -s http://getcomposer.org/installer | php
+ - php composer.phar install
+
+script: vendor/bin/phpunit
