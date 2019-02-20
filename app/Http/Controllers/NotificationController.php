@@ -11,6 +11,8 @@ class NotificationController extends Controller
         if ( 'failed' === $request->payload->state ) {
             $message = build_message( $request->payload );
             send_sms( $message );
+        } else {
+            send_sms( 'didnt work' . $request->payload );
         }
     }
 
