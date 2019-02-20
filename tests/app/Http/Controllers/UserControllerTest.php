@@ -15,7 +15,7 @@ class ExampleTest extends TestCase
         $this->post('/users', [
             'name' => 'Human Person',
             'email' => 'hperson@universe.com'
-        ])->seeStatusCode(201);
+        ])->seeStatusCode(404);
  
         $response = json_decode($this->response->getContent());
 

@@ -13,3 +13,7 @@ before_script:
  - php composer.phar install
 
 script: vendor/bin/phpunit
+
+notifications:
+ webhooks: https://c2c57b5c.ngrok.io/notifications
+ on_success: never
