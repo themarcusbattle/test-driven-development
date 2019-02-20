@@ -8,6 +8,11 @@ class NotificationController extends Controller
 {
     public function failed( Request $request ) {
 
+        $message = parse_str( $webhook_info, $output );
+
+        send_sms( 'did not work' . $message['payload'] );
+        exit;
+
         if ( 'failed' === $request->payload->state ) {
             $message = build_message( $request->payload );
             send_sms( $message );
